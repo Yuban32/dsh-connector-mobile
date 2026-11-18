@@ -1,0 +1,76 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "default"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    // This is needed by bundleManager.canOpenLink to check if the app can open some url
+    "querySchemes": [
+      "maps",
+      "http",
+      "https",
+      "customDomain"
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name": "ohos.permission.VIBRATE"
+      },
+      // 权限检测/申请（PermissionModule）只能作用于这里声明过的权限。
+      // user_grant 类权限（如 CAMERA）必须带 reason + usedScene，否则 PreBuild 报 00303218；
+      // reason 必须是 $string 资源引用（≤72 字符），不能写内联文字
+      {
+        "name": "ohos.permission.CAMERA",
+        "reason": "$string:camera_permission_reason",
+        "usedScene": {
+          "abilities": ["EntryAbility"],
+          "when": "inuse"
+        }
+      }
+    ],
+    "metadata": [
+      {
+        "name": "OPTLazyForEach",
+        "value": "true",
+      },
+      {
+        "name": "can_preview_text",
+        "value": "true",
+      },
+      {
+        "name": "halfLeading",
+        "value": "true",
+      },
+    ],
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:layered_image",
+        "label": "$string:EntryAbility_label",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "visible": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ],
+          }
+        ]
+      }
+    ]
+  }
+}

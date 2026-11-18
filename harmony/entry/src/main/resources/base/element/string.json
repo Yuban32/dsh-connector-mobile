@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": ""
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": ""
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "DSH Connector"
+    },
+    {
+      "name": "camera_permission_reason",
+      "value": "扫描二维码配对设备时需要使用摄像头取景"
+    }
+  ]
+}
